@@ -14,3 +14,8 @@ class ProductId(models.Model):
 	template = models.CharField(max_length = 4, choices=template_choise, verbose_name="Номер шаблона")
 	payment_id = models.CharField(max_length = 10, verbose_name="id оплаты")
 	paid = models.BooleanField(default=False, verbose_name="Оплачено")
+
+	class Meta:
+		verbose_name_plural = "Изделия"
+		verbose_name = "Изделие"
+		ordering = ["-template"]
