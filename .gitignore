@@ -1,2 +1,3 @@
 *.pyc
 future3d_site/settings.py
+*.png
