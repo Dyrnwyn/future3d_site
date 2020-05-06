@@ -3,15 +3,23 @@ from .models import ProductId, Email
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from datetime import date
 from django.template.loader import render_to_string
-
+from future3d_site.settings import BASE_DIR
 
 class ProductIdAdmin(admin.ModelAdmin):
     list_display = ('product_id', 'template', 'email',
                     'date_opening', 'payment_id', 'paid', 'date_payment',
-                    'stage')
+                    'stage', 'product_link')
     list_display_links = ('product_id', 'template', 'email')
-    actions = ('send_product_link', 'send_emailmessage_for_pay')
+    actions = ('send_product_link', 'send_emailmessage_for_pay', 'create_product_link')
     host_name_for_email = 'http://localhost:8000/product/'
+
+    def create_product_link(self, request, queryset):
+        for rec in queryset:
+            obj = ProductId.objects.get(product_id=rec.product_id)
+            obj.product_link = 'http://localhost:8000/product/' + str(rec.product_id)
+            obj.save()
+
+    create_product_link.short_description = 'Создать ссылку на изделие'
 
     def send_product_link(self, request, queryset):
         for rec in queryset:
@@ -38,10 +46,14 @@ class ProductIdAdmin(admin.ModelAdmin):
                                         body='',
                                         to=[rec.email])
             em.attach_alternative(s, 'text/html')
-            em.attach_file(r'E:/work/parallax_site/future3d_site/static/email/Инструкция по оплате заказа для родителей.pdf',
-                           'application/pdf')
+            # em.attach_file(r'E:/work/parallax_site/future3d_site/static/email/Инструкция по оплате заказа для родителей.pdf',
+            #                'application/pdf')
+            em.attach_file(BASE_DIR + '/static/email/Инструкция по оплате заказа для родителей.pdf',
+                            'application/pdf')
             em.send()
-            rec.stage = 'pay'
+            obj = ProductId.objects.get(product_id=rec.product_id)
+            obj.stage = 'pay'
+            obj.save()
 
     send_emailmessage_for_pay.short_description = 'Отправить письмо для оплаты'
 

@@ -2,106 +2,118 @@
 {%load static%}
 <html lang="ru">
  <head>
+ <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta charset="utf-8"/>
-  <link href="css/main.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js">
-  </script>
-  <script src="../js/parallax.min.js">
-  </script>
+  <link href="{% static 'catalog/css/reset.css' %}" rel="stylesheet"/>
+  <link href="{% static 'catalog/css/horizontal.css' %}" rel="stylesheet"/>
+  <link href="{% static 'catalog/css/menu.css' %}" rel="stylesheet"/>
+  <script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
+  <script src="{% static 'catalog/js/parallax.min.js' %}"> </script>
  </head>
- <body style="display: flex;
-    justify-content: center;
-    align-items: center; 
-    height: 100vh">
+ <body>
+
+    <img id="menu" src="{% static 'menu/three_stripes_horiz.svg'%}" alt="Меню">
+    <a href=""> <img id="reload" src="{% static 'menu/rotate.svg'%}" alt="Обновить страницу"> </a>  
+    <nav>       
+      <ul id="dropdown-menu">       
+          <li><a href="/contact_us">Обратная связь</a></li>
+          <li><a href="">Заказать сувениры</a></li>
+          <li><a href="">Заказать фото</a></li>
+      </ul> 
+  </nav>
+  
   <div class="scene" id="scene" data-hover-only="true" data-limit-y="50" data-limit-x="50">
-   <div data-depth="0">
+   <div data-depth="0.6">
     <img src="{% static 'catalog/4021/img/4021_59.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.9">
     <img src="{% static 'catalog/4021/img/4021_58.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.7">
     <img src="{% static 'catalog/4021/img/4021_57.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.6">
     <img src="{% static 'catalog/4021/img/4021_56.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.6">
     <img src="{% static 'catalog/4021/img/4021_55.png' %}"/>
    </div>
-   <div data-depth="0.05">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_54.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_53.png' %}"/>
    </div>
    <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_52.png' %}"/>
    </div>
-   <div data-depth="0.1">
+   <div data-depth="0.4">
     <img src="{% static 'catalog/4021/img/4021_51.png' %}"/>
    </div>
-   <div data-depth="0.3">
+   <div data-depth="0.7">
     <img src="{% static 'catalog/4021/img/4021_50.png' %}"/>
    </div>
-   <div data-depth="0.03">
+   <div data-depth="0.6">
     <img src="{% static 'catalog/4021/img/4021_49.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_48.png' %}"/>
    </div>
-   <div data-depth="0.01">
+   <div data-depth="0.6">
     <img src="{% static 'catalog/4021/img/4021_47.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.55">
     <img src="{% static 'catalog/4021/img/4021_46.png' %}"/>
    </div>
-   <div data-depth="0.02">
+   <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_45.png' %}"/>
    </div>
-   <div data-depth="0.04">
+   <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_44.png' %}"/>
    </div>
-   <div data-depth="0.3">
+   <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_43.png' %}"/>
    </div>
-   <div data-depth="0.06">
+   <div data-depth="0.4">
     <img src="{% static 'catalog/4021/img/4021_42.png' %}"/>
    </div>
-   <div data-depth="0.35" >
+   <div data-depth="0.3" >
     <img src="{% static 'catalog/4021/img/4021_41.png' %}"/>
    </div>
-   <div data-depth="0.04">
+   <div data-depth="0.5">
     <img src="{% static 'catalog/4021/img/4021_40.png' %}"/>
    </div>
-   <div data-depth="0.1">
+   <div data-depth="0.4">
     <img src="{% static 'catalog/4021/img/4021_39.png' %}"/>
    </div>
-   <div data-depth="0.05">
+   <div data-depth="0.4">
     <img src="{% static 'catalog/4021/img/4021_38.png' %}"/>
    </div>
-   <div data-depth="0.09">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_37.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.3">
     <img src="{% static 'catalog/4021/img/4021_36.png' %}"/>
    </div>
-   <div data-depth="0.06">
+   <div data-depth="0.3">
     <img src="{% static 'catalog/4021/img/4021_35.png' %}"/>
    </div>
-   <div data-depth="0.07">
+   <div data-depth="0.3">
     <img src="{% static 'catalog/4021/img/4021_34.png' %}"/>
    </div>
-   <div data-depth="0.2">
+   <div data-depth="0.3">
     <img src="{% static 'catalog/4021/img/4021_33.png' %}"/>
    </div>
-   <div data-depth="0.03">
+   <div data-depth="0.3">
     <img src="{% static 'catalog/4021/img/4021_32.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.25">
     <img src="{% static 'catalog/4021/img/4021_31.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{{product_img}}"/>
    </div>
    <div data-depth="0">
@@ -125,55 +137,55 @@
    <div data-depth="0">
     <img src="{% static 'catalog/4021/img/4021_23.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_22.png' %}"/>
    </div>
    <div data-depth="0">
     <img src="{% static 'catalog/4021/img/4021_21.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_20.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_19.png' %}"/>
    </div>
    <div data-depth="0">
     <img src="{% static 'catalog/4021/img/4021_18.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_17.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_16.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_15.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_14.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.15">
     <img src="{% static 'catalog/4021/img/4021_13.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_12.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_11.png' %}"/>
    </div>
-   <div data-depth="0.03">
+   <div data-depth="0.15">
     <img src="{% static 'catalog/4021/img/4021_10.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_9.png' %}"/>
    </div>
-   <div data-depth="0.05">
+   <div data-depth="0">
     <img src="{% static 'catalog/4021/img/4021_8.png' %}"/>
    </div>
    <div data-depth="0">
     <img src="{% static 'catalog/4021/img/4021_7.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_6.png' %}"/>
    </div>
    <div data-depth="0.2">
@@ -185,30 +197,21 @@
    <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_3.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_2.png' %}"/>
    </div>
-   <div data-depth="0">
+   <div data-depth="0.2">
     <img src="{% static 'catalog/4021/img/4021_1.png' %}"/>
    </div>
-   <div style="position: absolute;
-      z-index: 100000;
-      border-style: solid;
-      border-width: 10px;
-      transform: translate3d(0px, 0px, 0px);
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-      display: block;left: 0px;top: 0px;height: 99%;width: 100%;
-      margin-top: -10px;
-      margin-left: -10px;
-      border-color: #66ccff #66cc33 #66cc33;">
-
-    </div>
+   <div data-depth="0.2">
+    <img src="{% static 'catalog/4021/img/4021_0_border.png' %}"/>
+   </div>
   </div>
   <script>
    var scene = document.getElementById('scene');
 		var parallaxInstance = new Parallax(scene,{
  												relativeInput: true});
   </script>
+  <script src="{% static 'catalog/js/disable_contextmenu.js' %}"> </script>
  </body>
 </html>

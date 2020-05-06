@@ -1,0 +1,14 @@
+#form{
+	position: absolute;
+	margin: auto;
+}
+
+form{
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 6px;
+	padding: 5%;
+}
+ul li{
+	text-align: justify;
+}

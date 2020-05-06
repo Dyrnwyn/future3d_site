@@ -1,0 +1,63 @@
+#reload, #menu, nav{
+	position: absolute;
+}
+nav{
+	max-height: 0px;
+	overflow: hidden;
+	transition: all .15s ease;
+	top: 47px;
+	left: 10px;
+}
+
+#reload:hover, #menu:hover{
+	transform: rotate(180deg);
+	transition: 1s;
+}
+
+#reload, #menu{
+	height: 32px;
+	width: 32px;
+	position: absolute;
+}
+#reload{
+	top: 10px;
+	left: 52px;
+}
+
+#menu{
+	top: 10px;
+	left: 10px;
+}
+
+#menu:hover ~ nav, nav:hover{
+	max-height: 500px;
+	z-index: 2;
+}
+
+ul{
+	border: 2px solid #000;
+	border-radius: 6px;
+}
+
+li {
+	border-bottom: 1px solid #000;
+	margin: 5px 0px 5px 0px;
+}
+
+li:last-child {
+  border-bottom: 0;
+}
+
+li a{
+	font-size: 1.1em;
+	padding: 6px 12px;
+}
+
+li a:link {
+	text-decoration-line: none;
+	color: #000;
+}
+
+li a:visited {
+	color: #000;
+}

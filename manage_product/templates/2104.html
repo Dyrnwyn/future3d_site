@@ -2,22 +2,31 @@
 {%load static%}
 <html lang="ru">
  <head>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta charset="utf-8"/>
-  <link href="css/main.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js">
-  </script>
-  <script src="../js/parallax.min.js">
-  </script>
+ <link href="{% static 'catalog/css/reset.css' %}" rel="stylesheet"/>
+  <link href="{% static 'catalog/css/horizontal.css' %}" rel="stylesheet"/>
+  <link href="{% static 'catalog/css/menu.css' %}" rel="stylesheet"/>
+  <script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
+  <script src="{% static 'catalog/js/parallax.min.js' %}"> </script>
  </head>
- <body style="display: flex;
-    justify-content: center;
-    align-items: center; 
-    height: 100vh">
-  <div class="scene" id="scene" data-hover-only="true" 
-  style="height: 700px;
-         width: 1067px;">
-   <div data-depth="0.65" style="margin-left: -40px; 
-   margin-top: -40px;">
+ <body>
+
+   <img id="menu" src="{% static 'menu/three_stripes_horiz.svg'%}" alt="Меню">
+    <a href=""> <img id="reload" src="{% static 'menu/rotate.svg'%}" alt="Обновить страницу"> </a>  
+    <nav>       
+      <ul id="dropdown-menu">       
+          <li><a href="/contact_us">Обратная связь</a></li>
+          <li><a href="">Заказать сувениры</a></li>
+          <li><a href="">Заказать фото</a></li>
+      </ul> 
+  </nav>
+
+  <div class="scene" data-hover-only="true" id="scene">
+  <div data-depth="0.65">
     <img src="{% static 'catalog/2104/img/2104_52.png' %}"/>
    </div>
    <div data-depth="0.65">
@@ -32,7 +41,7 @@
    <div data-depth="0.6">
     <img src="{% static 'catalog/2104/img/2104_48.png' %}"/>
    </div>
-   <div data-depth="0.65" style="margin-top: -20px">
+   <div data-depth="0.65">
     <img src="{% static 'catalog/2104/img/2104_47.png' %}"/>
    </div>
    <div data-depth="0.65">
@@ -132,24 +141,16 @@
    <div data-depth="0.05">
     <img src="{% static 'catalog/2104/img/2104_4.png' %}"/>
    </div>
-    <div style="position: absolute;
-      z-index: 100000;
-      border-style: solid;
-      border-width: 200px;
-      transform: translate3d(0px, 0px, 0px);
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-      display: block;left: 0px;top: 0px;height: 90%;width: 92%;
-      margin-top: -170px;
-      margin-left: -170px;
-      border-color: #ffffff;">
-
-    </div>
+   <div data-depth="0">
+    <img src="{% static 'catalog/2104/img/2104_0_border.png' %}"/>
+   </div>    
   </div>
+
   <script>
    var scene = document.getElementById('scene');
 		var parallaxInstance = new Parallax(scene,{
  												relativeInput: true});
   </script>
+  <script src="{% static 'catalog/js/disable_contextmenu.js' %}"> </script>
  </body>
 </html>

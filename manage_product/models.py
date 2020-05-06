@@ -55,6 +55,9 @@ class ProductId(models.Model):
                               verbose_name="e-mail клиента")
     stage = models.CharField(max_length=10, choices=stage_choise,
                              verbose_name="Статус", default=1)
+    product_link = models.CharField(max_length=100,
+                                    verbose_name="Ссылка на изделие",
+                                    default='link')
 
     class Meta:
         verbose_name_plural = "Изделия"

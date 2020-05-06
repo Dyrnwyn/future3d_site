@@ -37,7 +37,7 @@ img{
 
 @media all and (max-device-height: 1024px) and (min-device-height: 426px) and (orientation: landscape){
 img{
-    width: 100vw;
+    height: 100vh;
 }
 }
 
