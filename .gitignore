@@ -1,5 +1,5 @@
 *.pyc
 future3d_site/settings.py
 *.png
-*.sqllite3
+*.sqlite3
 *_pycache_*
