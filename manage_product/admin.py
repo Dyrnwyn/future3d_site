@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductId, Email
+from .models import ProductId, Email, Town, Worker
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from datetime import date
 from django.template.loader import render_to_string
@@ -73,5 +73,6 @@ class EmailAdmin(admin.ModelAdmin):
 
 admin.site.register(ProductId, ProductIdAdmin)
 admin.site.register(Email, EmailAdmin)
-
+admin.site.register(Town)
+admin.site.register(Worker)
 # Register your models here.

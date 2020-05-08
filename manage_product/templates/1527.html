@@ -18,10 +18,10 @@
  <img id="menu" src="{% static 'menu/three_stripes_horiz.svg'%}" alt="Меню">
     <a href=""> <img id="reload" src="{% static 'menu/rotate.svg'%}" alt="Обновить страницу"> </a>  
     <nav>       
-      <ul id="dropdown-menu">       
-          <li><a href="/contact_us">Обратная связь</a></li>
-          <li><a href="">Заказать сувениры</a></li>
-          <li><a href="">Заказать фото</a></li>
+      <ul id="dropdown-menu">
+        {%for s in section%}       
+          <li><a href="{{s.section_url}}">{{s.section_name}}</a></li>
+        {%endfor%}
       </ul> 
   </nav>
   
