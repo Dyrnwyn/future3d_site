@@ -1,6 +1,9 @@
 #form{
 	position: absolute;
-	margin: auto;
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+    top: 15%
 }
 
 form{
@@ -9,6 +12,6 @@ form{
 	border-radius: 6px;
 	padding: 5%;
 }
-ul li{
-	text-align: justify;
+form ul li{
+	display: inline-grid;
 }

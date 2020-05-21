@@ -1,8 +1,10 @@
 # from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import loader
 from .models import ProductId
 from menu.models import Menu
+from future3d_site.settings import BASE_DIR
+from django.http import FileResponse
 
 
 def index(request):
@@ -14,8 +16,22 @@ def index(request):
 
 
 def index_product(request, productid):
-    product_uuid = ProductId.objects.get(product_id=productid)
-    template = loader.get_template(product_uuid.template + '.html')
+    try:
+        product_uuid = ProductId.objects.get(product_id=productid)
+    except ProductId.DoesNotExist:
+        raise Http404('Такой страницы не существует')
+    template = loader.get_template("manage_product/" + product_uuid.template + '.html')
     section = Menu.objects.order_by('section_number')
-    context = {'product_img': product_uuid.img.url, 'section': section}
+    if product_uuid.img_jpg.name != '':
+        img_jpg = product_uuid.img_jpg.url
+    else:
+        img_jpg = None
+    context = {'product_img': product_uuid.img.url, 'section': section,
+               'img_jpg': img_jpg}
     return HttpResponse(template.render(context, request))
+
+
+def download_json(request):
+    return FileResponse(open(BASE_DIR + '/upload/' + 'product_for_pay.json',
+                             'rb'), as_attachment=True,
+                        filename='product_for_1c.json')

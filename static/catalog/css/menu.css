@@ -1,6 +1,8 @@
 #reload, #menu, nav{
 	position: absolute;
+	z-index: 3;
 }
+
 nav{
 	max-height: 0px;
 	overflow: hidden;
@@ -34,13 +36,14 @@ nav{
 	z-index: 2;
 }
 
-ul{
-	border: 2px solid #000;
+#dropdown-menu{
+	border: 2px solid #342A2A;
 	border-radius: 6px;
+	background-color: #342A2A;
 }
 
-li {
-	border-bottom: 1px solid #000;
+#menu>ul>li {
+	border-bottom: 1px solid #342A2A;
 	margin: 5px 0px 5px 0px;
 }
 
@@ -55,9 +58,24 @@ li a{
 
 li a:link {
 	text-decoration-line: none;
-	color: #000;
+	color: #fff;
 }
 
 li a:visited {
-	color: #000;
+	color: #fff;
+}
+
+
+
+@media all and (max-device-height: 425px) and (orientation: landscape){
+#reload{
+	top: 52px;
+	left: 10px;
+}
+
+nav{
+	top: 10px;
+	left: 52px;
+}
+
 }

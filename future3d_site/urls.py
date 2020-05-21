@@ -21,11 +21,15 @@ from django.contrib.staticfiles.views import serve
 from django.views.decorators.cache import never_cache
 
 from feedback.views import contact_us
+from manage_product.views import download_json
+from faq.views import faq
 
 urlpatterns = [
     path('product/', include('manage_product.urls')),
-    path('admin/', admin.site.urls),
-    path('contact_us/', contact_us)
+    path('admin/manage_product/download_json/', download_json),
+    path('governance/', admin.site.urls),
+    path('contact_us/', contact_us),
+    path('faq/', faq),
 
 ]
 
