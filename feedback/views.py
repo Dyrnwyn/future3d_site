@@ -3,6 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 from .forms import FeedbackForm
 from menu.models import Menu
+from django.contrib import messages
 
 
 def contact_us(request):
@@ -13,6 +14,7 @@ def contact_us(request):
         fdbk = FeedbackForm(request.POST)
         if fdbk.is_valid:
             fdbk.save()
+            messages.add_message(request, messages.INFO, "Сообщение успешно отправлено")
             return HttpResponse(template.render(context, request))
         else:
             pass

@@ -4,6 +4,7 @@ from datetime import date
 import random
 
 
+
 def default_date():
     return date.today()
 
@@ -126,3 +127,27 @@ class ProductId(models.Model):
         verbose_name_plural = "Изделия"
         verbose_name = "Изделие"
         ordering = ["-template"]
+
+class FotoOrder(models.Model):
+    def upload_path(self, filename):
+      return "order_img/" + str(randrange(10000000, 99999999) + "_" + filename)
+
+    client_email = models.EmailField(verbose_name="Email")
+    town = models.CharField(max_length=30, verbose_name="Город")
+    ed_institution = models.CharField(max_length=50,
+                                  verbose_name="Номер школы/детского сада")
+    the_class = models.CharField(max_length=20, verbose_name="класс/группа")
+    foto_from_client = models.ImageField(upload_to=upload_path,
+                                         verbose_name="Фото")
+
+    class Meta:
+      verbose_name = "Заказ"
+      verbose_name_plural = "Заказы"
+
+
+class Articles(models.Model):
+    description = models.TextField(null=True, verbose_name="Инструкция")
+
+    class Meta:
+        verbose_name = "Статья"
+        verbose_name_plural = "Статьи"

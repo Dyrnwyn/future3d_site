@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductId, Email, Town, Worker
+from .models import ProductId, Email, Town, Worker, FotoOrder
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from datetime import date
 from django.template.loader import render_to_string
@@ -90,8 +90,13 @@ class EmailAdmin(admin.ModelAdmin):
     list_display = ('email',)
 
 
+class FotoOrderAdmin(admin.ModelAdmin):
+    list_display = ('client_email', 'town', 'ed_institution',
+                    'the_class')
+
 admin.site.register(ProductId, ProductIdAdmin)
 admin.site.register(Email, EmailAdmin)
 admin.site.register(Town)
 admin.site.register(Worker)
+admin.site.register(FotoOrder)
 # Register your models here.
