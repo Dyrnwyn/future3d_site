@@ -1,0 +1,22 @@
+{%extends '../basic.html'%}
+{%load static%}
+{%load bootstrap4%}
+
+{%block title%}
+	Обратная связь 
+{%endblock title%}
+{%block head%}
+	<!-- <link href="{% static 'contact_us/main.css' %}" rel="stylesheet"/> -->
+{%endblock head%}
+
+{%block content%}
+	<div class="row align-items-center justify-content-center min-vh-100">
+		<div class="col-9 col-sm-6">
+		<form method="post">
+			{%csrf_token%}
+			{% bootstrap_form form %}
+			{% buttons submit="Отправить" reset="Очистить" %} {%endbuttons%}
+		</form>
+		</div>
+	</div>
+{%endblock content%}

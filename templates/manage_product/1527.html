@@ -1,0 +1,30 @@
+{%extends '../basic-product.html'%}
+{%load static%}
+  {% block head %}
+  <link href="{% static 'catalog/css/horizontal-grid.css' %}" rel="stylesheet"/>
+  {% endblock head %}
+{% block content %}
+  <div class="scene" id="scene" data-hover-only="true" data-limit-y="50" data-limit-x="50">
+    <img data-depth="0.6" src="{% static 'catalog/1527/img/1527_58.png' %}"/>
+    <img data-depth="0.9" src="{% static 'catalog/1527/img/1527_57.png' %}"/>
+    <img data-depth="0.7" src="{% static 'catalog/1527/img/1527_56.png' %}"/>
+    <img data-depth="0.6" src="{% static 'catalog/1527/img/1527_54_55.png' %}"/>
+    <img data-depth="0.5" src="{% static 'catalog/1527/img/1527_53.png' %}"/>
+    <img data-depth="0.4" src="{% static 'catalog/1527/img/1527_30_52.png' %}"/>
+    <img data-depth="0.3" src="{{product_img}}"/>
+    <img data-depth="0.3" src="{% static 'catalog/1527/img/1527_28.png' %}"/>
+    <img data-depth="0.3" src="{% static 'catalog/1527/img/1527_27.png' %}"/> 
+    <img data-depth="0.26" src="{% static 'catalog/1527/img/1527_26.png' %}"/>
+    <img data-depth="0.26" src="{% static 'catalog/1527/img/1527_25.png' %}"/>
+    <img data-depth="0.3" src="{% static 'catalog/1527/img/1527_24.png' %}"/>
+    <img data-depth="0.3" src="{% static 'catalog/1527/img/1527_23.png' %}"/>
+    <img data-depth="0.26" src="{% static 'catalog/1527/img/1527_22.png' %}"/>
+    <img data-depth="0.2" src="{% static 'catalog/1527/img/1527_21.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/1527/img/1527_16.png' %}"/>
+    <img data-depth="0.1" src="{% static 'catalog/1527/img/1527_12.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/1527/img/1527_11.png' %}"/>
+    <img data-depth="0.1" src="{% static 'catalog/1527/img/1527_10.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/1527/img/1527_8.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/1527/img/1527_0_border.png' %}"/>
+  </div>
+ {% endblock content %}

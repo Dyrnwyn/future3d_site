@@ -1,11 +1,14 @@
 from django.contrib import admin
-from .models import ProductId, Email, Town, Worker, FotoOrder
+from .models import ProductId, Email, Town, Worker, FotoOrder, Articles
 from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 from datetime import date
 from django.template.loader import render_to_string
-from future3d_site.settings import BASE_DIR
+from future3d_site.settings import BASE_DIR, HOSTNAME_SITE
 from django.http import HttpResponseRedirect
 import json
+
+
+host_name_for_email = HOSTNAME_SITE + 'product/'
 
 
 class ProductIdAdmin(admin.ModelAdmin):
@@ -15,7 +18,6 @@ class ProductIdAdmin(admin.ModelAdmin):
     list_display_links = ('product_id', 'template', 'email')
     actions = ('send_product_link', 'send_emailmessage_for_pay',
                'create_product_link', 'generate_json_for_pay')
-    host_name_for_email = 'http://localhost:8000/product/'
 
     def generate_json_for_pay(self, request, queryset):
         json_file = open(BASE_DIR + '/upload/' + 'product_for_pay.json', 'w',
@@ -37,15 +39,14 @@ class ProductIdAdmin(admin.ModelAdmin):
     def create_product_link(self, request, queryset):
         for rec in queryset:
             obj = ProductId.objects.get(product_id=rec.product_id)
-            obj.product_link = 'http://localhost:8000/product/' + str(rec.product_id)
+            obj.product_link = host_name_for_email + str(rec.product_id)
             obj.save()
 
     create_product_link.short_description = 'Создать ссылку на изделие'
 
     def send_product_link(self, request, queryset):
         for rec in queryset:
-            context = {'product_link': self.host_name_for_email +
-                       str(rec.product_id)}
+            context = {'product_link': host_name_for_email + str(rec.product_id)}
             s = render_to_string('email/send_product_link.html',
                                  context=context)
             send_mail('Ссылка на изделие', '',
@@ -98,5 +99,6 @@ admin.site.register(ProductId, ProductIdAdmin)
 admin.site.register(Email, EmailAdmin)
 admin.site.register(Town)
 admin.site.register(Worker)
-admin.site.register(FotoOrder)
+admin.site.register(FotoOrder, FotoOrderAdmin)
+admin.site.register(Articles)
 # Register your models here.

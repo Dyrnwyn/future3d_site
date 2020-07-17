@@ -1,0 +1,40 @@
+{%extends '../basic-product.html'%}
+{%load static%}
+{%block title%} Заказ живого фото {%endblock title%}
+  {% block head %}
+  <link href="{% static 'orderfoto/orderfoto.css' %}" rel="stylesheet"/>
+  {% endblock head %}
+
+{% block content %}
+	<div>
+		<div id="article">
+			{{article|safe}}
+		</div>
+		<div id="order-form">
+			{%if form.is_multipart%}
+				<form enctype="multipart/form-data" method="post">
+			{%else%}
+				<form method="post">
+			{%endif%}
+			{%csrf_token%}
+			<p id="order_label">{{form.client_email.label}}</p>
+			<p id="order_field">{{form.client_email}}</p>
+			<p id="order_error">{{form.client_email.errors}}</p>
+			<p id="order_label">{{form.town.label}}</p>
+			<p id="order_field">{{form.town}}</p>
+			<p id="order_error">{{form.town.errors}}</p>
+			<p id="order_label">{{form.ed_institution.label}}</p>
+			<p id="order_field">{{form.ed_institution}}</p>
+			<p id="order_error">{{form.ed_institution.errors}}</p>
+			<p id="order_label">{{form.the_class.label}}</p>
+			<p id="order_field">{{form.the_class}}</p>
+			<p id="order_error">{{form.the_class.errors}}</p>
+			<p id="order_label">{{form.foto_from_client.label}}</p>
+			<p id="order_field">{{form.foto_from_client}}</p>
+			<p id="order_error">{{form.foto_from_client.errors}}</p>
+			<input type="submit" value="Отправить">
+			<input type="reset" value="Очистить">
+			</form>
+		</div>
+	</div>
+{% endblock content %}

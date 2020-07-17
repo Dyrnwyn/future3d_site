@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Обратная связь</title>
+	<link href="{% static 'catalog/css/reset.css' %}" rel="stylesheet"/>
+	<link href="{% static 'contact_us/main.css' %}" rel="stylesheet"/>
+	<link href="{% static 'noty/css/noty.css' %}" rel="stylesheet"/>
+	<link href="{% static 'menu/css/menu.css' %}" rel="stylesheet"/>
+</head>
+<body>
+	<img id="menu" src="{% static 'menu/three_stripes_horiz.svg'%}" alt="Меню">
+    <a href=""> <img id="reload" src="{% static 'menu/rotate.svg'%}" alt="Обновить страницу"> </a>  
+	 <nav>       
+      <ul id="dropdown-menu">
+        {%for s in section%}       
+          <li><a href="{{s.section_url}}">{{s.section_name}}</a></li>
+        {%endfor%}
+       
+      </ul> 
+  </nav>
+	<div id="form" name="form">
+		<form method="post">
+			{%csrf_token%}
+			<ul>
+				{{form.as_ul}}
+			</ul>
+			<input type="submit" value="Отправить">
+		</form>
+	</div>
+	<script>
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+#article{
+    padding-top: 50px;
+}
+
+#order-form{
+    padding-top: 3%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1250px) 1fr;
+    grid-template-rows: minmax(auto, 100vh);
+    z-index: 1;
+}
+
+#scene{
+    align-self: center;
+}
+
+/*.grid>div#scene>img{    
+    max-width: 1250px;
+}*/
+
+
+@media screen and (orientation: portrait) {
+.grid{
+    display: grid;
+    grid-template-columns: 10% minmax(auto, 1250px) 10%;
+    grid-template-rows: minmax(auto, 100vh);
+    z-index: 1;
+}
+}
+
+@media screen and (max-height: 768px) and (orientation: landscape) {
+#scene{
+    justify-self: center;
+    height: 100vh;
+}
+.grid>div#scene>img{
+    height: 100%;
+    width: auto;
+}    
+}
+
+/*@media screen and (aspect-ratio: 4/3) and (orientation: landscape), (aspect-ratio: 683/512)  and (orientation: landscape) {
+#scene{
+    justify-self: center;
+    height: 100vh;
+}
+
+.grid>div#scene>img{
+    width: 100%;
+    height: auto;
+    justify-self: center;
+} 
+}*/
+/*--------------------меню и сообщения--------------------*/
+.grid-head{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: max-content auto minmax(auto, 300px) ;
+    position: absolute;
+    z-index: 20;
+}
+
+.grid-head div{
+    padding: 10px 10px 10px 10px;
+}
+
+nav{
+    display: none;
+    position: relative;
+}
+
+
+/*-------------------сообщения------------------------*/
+
+#message{
+position: relative;
+border-style: solid;
+border-radius: 10px;
+border-width: 1px;
+background-color: dodgerblue;
+margin-bottom: 5px;
+padding: 10px;
+overflow-wrap: break-word;
+box-shadow: 0px 1px 3px black;
+}
+
+/*-------------меню--------------------------------*/
+
+.menu-container{
+    display: grid;
+    grid-template-columns: max-content minmax(20px, 40px);
+    grid-template-rows: max-content max-content;
+    grid-template-areas: "menu reload"
+                         "menulist menulist";
+    padding: 0px;
+}
+
+.menu-container:nth-child(3){
+    grid-row:1/2;
+}
+
+#menu>img, #reload img{
+    width: 16px;
+}
+.img-menu{
+    margin-right: 5px;
+} 
+
+#menu{
+    grid-area: menu;
+    display: inline-flex;
+    padding: 0px;
+}
+#menu div img{
+    height: 16px;
+    width: 16px;
+    padding-bottom: 3px;
+}
+
+#reload{
+    grid-area: reload;
+}
+#dropdown-menu{
+    grid-area: menulist;
+}
+
+nav#dropdown-menu{
+    border: 1px solid #BBBBBB;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#reload:hover, #drop-menu:hover{
+    background-color: #567AFF;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+nav ul li {
+    border-bottom: 1px solid #6E6767;
+    padding: 5px 0px 5px 0px;
+
+}
+
+li:last-child {
+  border-bottom: 0;
+}
+
+li a:link, #buy a{
+    text-decoration-line: none;
+    color: #303030;
+}
+
+li a:visited {
+    color: #303030;
+}
+
+li a{
+    font-size: 1.1em;
+    padding: 6px 12px;
+}
+
+li:hover{
+    background-color: #A6C7F9;
+}
+
+/*----------------social----------------*/
+
+.social{
+    display: grid;
+    position: absolute;
+    grid-template-rows: 1fr min-content 1fr;
+    right: 0px;
+    z-index: 15;
+    height: 100%;
+
+}
+
+/*.social div{
+    padding: 5px;
+}*/
+
+
+.ya-share2__title{
+    display: none !important;
+}
+
+.ya-share2__container_size_m .ya-share2__item{
+    margin:0 !important;
+}
+
+
+/*------------------form order ----------------*/
+
+form{
+	max-width: 500px;
+	margin-left: auto;
+    margin-right: auto;
+    border: 2px solid;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: lightblue;
+    text-align: center;
+}
+input[type="submit"]{
+	margin-right: 10px;
+	background-color: green;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+input[type="reset"]{
+	margin-left:10px;
+	background-color: red;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+/*#order_field, #order_label, #order_error{
+	text-align: center;
+}*/
+#order_error{
+	margin-top: 1em;
+}
+#order_field input{
+	width: 75%;
+}
+

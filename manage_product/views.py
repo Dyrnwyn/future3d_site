@@ -1,13 +1,14 @@
 # from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.template import loader
-from .models import ProductId
+from .models import ProductId, Articles
 from menu.models import Menu
 from future3d_site.settings import BASE_DIR
 from django.http import FileResponse
 from ad_message.views import get_active_message
 from django.contrib import messages
 from .forms import FotoOrderForm
+from django.contrib import messages
 
 def index(request):
     template = loader.get_template('product.html')
@@ -43,4 +44,20 @@ def download_json(request):
 
 
 def order_photo(request):
-    pass
+    article = Articles.objects.get(id=1)
+    section = Menu.objects.order_by('section_number')
+    context = {'form': FotoOrderForm, 'article': article.description,
+               'section': section}
+    template = loader.get_template("manage_product/fotoorder.html")
+    if request.method == "POST":
+        order_foto = FotoOrderForm(request.POST, request.FILES)
+        if order_foto.is_valid():
+            order_foto.save()
+            messages.add_message(request, messages.INFO, "Запрос успешно отправлен. С Вами скоро свяжутся.")
+            return HttpResponse(template.render(context, request))
+        else:
+            context = {'form': order_foto, 'article': article.description}
+            return HttpResponse(template.render(context, request))
+
+    else:
+        return HttpResponse(template.render(context, request))

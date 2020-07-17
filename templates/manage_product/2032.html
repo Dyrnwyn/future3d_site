@@ -1,0 +1,31 @@
+{%extends '../basic-product.html'%}
+{%load static%}
+{% block head %}
+  <link href="{% static 'catalog/css/vertical.css' %}" rel="stylesheet"/>
+{% endblock head %}
+{% block content %}
+
+  <div class="scene" data-hover-only="true" id="scene">
+    <img data-depth="0.5" src="{% static 'catalog/2032/img/2032_52_53.png' %}"/>
+    <img data-depth="0.9" src="{% static 'catalog/2032/img/2032_50_51.png' %}"/>
+    <img data-depth="0.7" src="{% static 'catalog/2032/img/2032_49.png' %}"/>
+    <img data-depth="0.9" src="{% static 'catalog/2032/img/2032_48.png' %}"/> 
+    <img data-depth="0.7" src="{% static 'catalog/2032/img/2032_42_43_44_45_46_47.png' %}"/>
+    <img data-depth="0.6" src="{% static 'catalog/2032/img/2032_37_38_39_40.png' %}"/>
+    <img data-depth="0.5" src="{% static 'catalog/2032/img/2032_36.png' %}"/>
+    <img data-depth="0.6" src="{% static 'catalog/2032/img/2032_35.png' %}"/>
+    <img data-depth="0.5" src="{% static 'catalog/2032/img/2032_34.png' %}"/>
+    <img data-depth="0.4" src="{% static 'catalog/2032/img/2032_33.png' %}"/>
+    <img data-depth="0.6" src="{% static 'catalog/2032/img/2032_32.png' %}"/>
+    <img data-depth="0.4" src="{% static 'catalog/2032/img/2032_28_-_31.png' %}"/>
+    <img data-depth="0.4" src="{{product_img}}"/> 
+    <img data-depth="0.4" src="{% static 'catalog/2032/img/2032_18_-_26.png' %}"/>
+    <img data-depth="0.3" src="{% static 'catalog/2032/img/2032_15_16_17.png' %}"/> 
+    <img data-depth="0.2" src="{% static 'catalog/2032/img/2032_12_13_14.png' %}"/>
+    <img data-depth="0.1" src="{% static 'catalog/2032/img/2032_6_-_11.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/2032/img/2032_5.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/2032/img/2032_4.png' %}"/>
+    <img data-depth="0.5" src="{% static 'catalog/2032/img/2032_3.png' %}"/>
+    <img data-depth="0" src="{% static 'catalog/2032/img/2032_0_border.png' %}"/>
+  </div>
+ {% endblock content %}

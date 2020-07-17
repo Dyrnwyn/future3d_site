@@ -1,0 +1,30 @@
+{%extends '../basic.html'%}
+{%load static%}
+{%load bootstrap4%}
+{%block title%} 
+	Частые вопросы
+{%endblock title%}
+<body>
+	  <img id="menu" src="{% static 'menu/three_stripes_horiz.svg'%}" alt="Меню">
+    <a href=""> <img id="reload" src="{% static 'menu/rotate.svg'%}" alt="Обновить страницу"> </a>  
+    <nav>       
+      <ul id="dropdown-menu">
+         {%if img_jpg is not None%}
+          <li><a href="{{img_jpg}}" download>Скачать фотографию</a> </li>
+        {%endif%}
+        {%for s in section%}       
+          <li><a href="{{s.section_url}}">{{s.section_name}}</a></li>
+        {%endfor%}
+       
+      </ul> 
+  </nav>
+	<div id="faq">
+		<ul>
+			{%for f in faq%}
+			<li id="question">{{f.question}}</li>
+			<li id="answer">{{f.answer}}</li>
+			{%endfor%}
+		</ul>
+	</div>
+</body>
+</html>
