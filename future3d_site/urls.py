@@ -30,7 +30,8 @@ urlpatterns = [
     path('governance/', admin.site.urls),
     path('contact_us/', contact_us),
     path('faq/', faq),
-
+    path('magazine/', include('eshop.urls')),
+    path('ar/', include('ar.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

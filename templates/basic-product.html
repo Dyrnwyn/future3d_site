@@ -33,7 +33,7 @@
   <link href="{% static 'catalog/css/horizontal-grid.css' %}" rel="stylesheet"/>
   {% endblock head %}
   <script  src="{% static 'jquery/jquery-3.5.1.min.js'%}"></script>
-  <script src="{% static 'catalog/js/parallax.min.js' %}"> </script>
+ 
   <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
  </head>
  <body>
@@ -93,6 +93,8 @@
 
 
  </body>
+ <script src="{% static 'catalog/js/parallax.min.js' %}"> </script>
+ 
   <script>
    var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene,{
@@ -126,4 +128,5 @@
         }                     
       });
 </script>
+
 </html>

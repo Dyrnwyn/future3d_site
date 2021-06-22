@@ -3,3 +3,8 @@ future3d_site/settings.py
 *.png
 *.sqlite3
 *_pycache_*
+manage_product/migrations
+ad_message/migrations
+ar/migrations
+faq/migrations
+menu/migrations

@@ -10,6 +10,7 @@ from django.contrib import messages
 from .forms import FotoOrderForm
 from django.contrib import messages
 
+
 def index(request):
     template = loader.get_template('product.html')
     Products = ProductId.objects.order_by('-template')
@@ -23,7 +24,8 @@ def index_product(request, productid):
         product_uuid = ProductId.objects.get(product_id=productid)
     except ProductId.DoesNotExist:
         raise Http404('Такой страницы не существует')
-    template = loader.get_template("manage_product/" + product_uuid.template + '.html')
+    print(product_uuid.template_name.template_id)
+    template = loader.get_template("manage_product/" + str(product_uuid.template_name.template_id) + '.html')
     section = Menu.objects.order_by('section_number')
     if product_uuid.img_jpg.name != '':
         img_jpg = product_uuid.img_jpg.url

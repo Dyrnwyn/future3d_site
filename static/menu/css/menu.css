@@ -35,7 +35,7 @@ nav{
 	z-index: 2;
 }
 
-#reload:hover, #menu:hover{
+#reload:hover, #buy:hover, #menu:hover{
 	background-color: #567AFF;
 	cursor: pointer;
 }

@@ -132,7 +132,7 @@ nav#dropdown-menu{
     max-width: 200px;
 }
 
-#reload:hover, #drop-menu:hover{
+#reload:hover, #buy:hover, #drop-menu:hover{
     background-color: #567AFF;
     cursor: pointer;
     border-radius: 10px;
